@@ -35,7 +35,7 @@ const Cart = ({cart , setCart}) => {
   }
 
   const payment = async()=>{
-alert("hello payment process in geting started")
+alert("Payment process is getting started")
    const stripe = await loadStripe('pk_test_51P3tnISE4nUJnYc3Fuuuu5ZoYKbCKvulpPegD2Ubhnlogs5DSF6xIB30Ktwg0z4QnIlgUIZs6NR52qUCfjPHVTLA00AiJdgfA7')
 
    const propassing = {
@@ -44,7 +44,7 @@ alert("hello payment process in geting started")
    const headers ={
     "Content-Type":"application/json"
    }
-   const resp = await fetch("http://localhost:3200/api/create-checkout-session", {
+   const resp = await fetch("https://doll-delights-backend-project-2.onrender.com/api/create-checkout-session", {
     method: "POST",
     headers: headers,
     body: JSON.stringify(propassing)
