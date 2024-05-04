@@ -11,7 +11,7 @@ const[password, setPassword] = useState('')
 const passing = useNavigate()
 async function signupcode(e){
   e.preventDefault()
-    await axios.post("http://localhost:3200/login",{email , password}).then((res)=>{
+    await axios.post("https://doll-delights-backend-project-2.onrender.com/login",{email , password}).then((res)=>{
           if (res.data == "exist") {
             passing('/home')
           } else {
