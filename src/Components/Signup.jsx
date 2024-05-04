@@ -12,7 +12,7 @@ const[password, setPassword] = useState('')
 const passing = useNavigate()
   async function signupcode(e){
     e.preventDefault()
-    await axios.post("http://localhost:3200/signin",{email , password}).then((res)=>{
+    await axios.post("https://doll-delights-backend-project-2.onrender.com/signin",{email , password}).then((res)=>{
           if (res.data == "exist") {
             alert("user id already exist")
           } else {
