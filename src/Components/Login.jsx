@@ -6,6 +6,8 @@ import axios from 'axios'
 const Login = () => {
   const[email, setEmail] = useState('')
 const[password, setPassword] = useState('')
+const[alert , setAlert] = useState(true)
+
 // console.log(email , Password)
 
 const passing = useNavigate()
@@ -14,9 +16,11 @@ async function signupcode(e){
     await axios.post("https://doll-delights-backend-project-2.onrender.com/login",{email , password}).then((res)=>{
           if (res.data == "exist") {
             passing('/home')
+            setAlert(true)
           } else {
            
-            alert("Please Enter correct Email id and Password")
+            // alert("Please Enter correct Email id and Password")
+            setAlert(false)
           }
      })
   }
@@ -39,6 +43,9 @@ async function signupcode(e){
      {/* <div className='flex items-center gap-[7px] relative right-[32%] pb-[30px]'>
       <input type="checkbox" /> <p className='font-medium'>Remember me</p>
      </div> */}
+              {
+          alert === false ?   <p className='text-red-700 text-center pb-2 font-semibold'>Please enter correct Email id and Password !</p> : null
+         }
      <p className='flex items-center lg:gap-[5px] gap-[3px] justify-center lg:text-[20px] text-[12px]'>New to Doll Delights?<Link to={'/signin'}><p className='text-btn-color font-normal lg:text-[20px] text-[12px] underline'>Sign in</p></Link></p>
      <button className='w-full py-[11px] bg-btn-color rounded-[5px] font-medium text-[19px] my-[20px]'>Login</button>
   </form>
